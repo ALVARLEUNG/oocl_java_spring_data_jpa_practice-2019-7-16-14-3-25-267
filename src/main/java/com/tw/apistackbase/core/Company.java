@@ -1,8 +1,17 @@
 package com.tw.apistackbase.core;
 
-public class Company {
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "company")
+public class Company implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "name")
     private String name;
 
     public Long getId() {
