@@ -11,24 +11,29 @@ public class CompanyResource {
 
     @Autowired
     CompanyRepository companyRepository;
-    
+
     @GetMapping(produces = {"application/json"})
     public Iterable<Company> list() {
         return companyRepository.findAll();
     }
-    
+
     @PostMapping(produces = {"application/json"})
     public Company add(@RequestBody Company company) {
         return companyRepository.save(company);
     }
 
     @DeleteMapping(produces = {"application/json"})
-    public void deleteAll () {
+    public void deleteAll() {
         companyRepository.deleteAll();
     }
 
     @PutMapping
-    public void updateCompany (@RequestBody Company company) {
+    public void updateCompany(@RequestBody Company company) {
         companyRepository.save(company);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable Long id) {
+        companyRepository.deleteById(id);
     }
 }

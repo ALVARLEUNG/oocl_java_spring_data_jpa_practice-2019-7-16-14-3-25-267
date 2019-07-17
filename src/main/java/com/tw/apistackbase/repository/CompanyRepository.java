@@ -2,10 +2,11 @@ package com.tw.apistackbase.repository;
 
 import com.tw.apistackbase.core.Company;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface CompanyRepository extends JpaRepository<Company, Long> {
+public interface CompanyRepository extends CrudRepository<Company, Long> {
 }
