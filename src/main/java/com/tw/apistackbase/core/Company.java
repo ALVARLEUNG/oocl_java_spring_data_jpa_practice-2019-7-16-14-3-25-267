@@ -14,6 +14,9 @@ public class Company implements Serializable {
     @Column(name = "name")
     private String name;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private Profile profile;
+
     public Long getId() {
         return id;
     }
@@ -35,5 +38,14 @@ public class Company implements Serializable {
 
     public Company(String name) {
         this.name = name;
+    }
+
+
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
     }
 }
