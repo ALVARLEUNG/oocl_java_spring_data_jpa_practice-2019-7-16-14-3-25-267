@@ -5,6 +5,8 @@ import com.tw.apistackbase.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/companies")
 public class CompanyResource {
@@ -23,8 +25,8 @@ public class CompanyResource {
     }
 
     @DeleteMapping(produces = {"application/json"})
-    public void deleteAll() {
-        companyRepository.deleteAll();
+    public void deleteAll(@RequestBody List<Company> companies) {
+        companyRepository.deleteAll(companies);
     }
 
     @PutMapping
